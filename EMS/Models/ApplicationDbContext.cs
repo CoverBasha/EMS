@@ -1,12 +1,19 @@
-﻿using System.Data.Entity;
+﻿using Microsoft.EntityFrameworkCore;
+
 namespace EMS.Models
 {
     public class ApplicationDbContext : DbContext
     {
-        public ApplicationDbContext()
+		public DbSet<Employee> Employees { get; set; }
+
+		public ApplicationDbContext()
         {
 
         }
-        public DbSet<Employee> Employees { get; set; }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlServer("Server=.\\SQLSERVER; Database=EMS; Trusted_Connection=true; TrustServerCertificate=true;");
+        }
     }
 }

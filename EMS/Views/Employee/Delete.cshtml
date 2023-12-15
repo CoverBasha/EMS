@@ -1,0 +1,45 @@
+﻿@model Employee
+
+@{
+    ViewData["Title"] = "Delete Employee";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<br />
+@if (Model != null)
+{
+    <form method="post" asp-controller="Employee" asp-action="Remove">
+        <div class="mb-3 col-3">
+            <label for="idInput" class="form-label" asp-for="Id"></label>
+            <input type="number" class="form-control" id="idInput" aria-describedby="idHelp" asp-for="Id" readonly>
+        </div>
+
+        <div class="mb-3 col-3">
+            <label for="nameInput" class="form-label" asp-for="Name"></label>
+            <input type="text" class="form-control" id="nameInput" aria-describedby="nameHelp" asp-for="Name" readonly>
+        </div>
+
+        <div class="mb-3 col-3">
+            <label for="emailInput" class="form-label" asp-for="Email"></label>
+            <input type="email" class="form-control" id="emailInput" aria-describedby="emailHelp" asp-for="Email" readonly>
+        </div>
+
+        <div class="mb-3 col-3">
+            <label for="phoneInput" class="form-label" asp-for="Phone"></label>
+            <input type="text" class="form-control" id="phoneInput" aria-describedby="phoneHelp" asp-for="Phone" readonly>
+        </div>
+
+        <div class="mb-3 col-3">
+            <label for="deptInput" class="form-label" asp-for="Department"></label>
+            <input type="text" class="form-control" id="deptInput" aria-describedby="deptHelp" asp-for="Department" readonly>
+        </div>
+
+        <button type="submit" class="btn btn-danger">Delete</button>
+        <a class="btn btn-primary" asp-action="Index">Back</a>
+    </form>
+}
+else
+{
+    <div class="alert alert-danger text-danger">Employee could not be found.</div>
+}

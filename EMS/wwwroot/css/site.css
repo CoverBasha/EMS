@@ -16,3 +16,11 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.table-btn {
+    margin-right: 5px;
+}
+
+.table-middle {
+    vertical-align: middle;
+}
